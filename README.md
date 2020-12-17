@@ -19,6 +19,6 @@ Log-in to administration site:
 
 <br>
 Image upload will only work with the photos in the Images folder.
-<br>
+<br><br>
 Note: seperate command prompts for the project and the API <br>
 Note: for the installation guide for the API, take a look at the README file in the databaseQuickfind folder
