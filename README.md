@@ -11,3 +11,8 @@ Installations Guide
 4. type "npm install" in the command prompt
 
 5. type "npm start" in the command prompt to start the server
+
+
+Log-in to administration site:
+username: admin
+password: admin
