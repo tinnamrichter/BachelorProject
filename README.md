@@ -12,6 +12,8 @@ Installation Guide
 
 5. type "npm start" in the command prompt to start the server
 
+6. Navigate to http://localhost:4200/ in the browser.
+
 
 Log-in to administration site:
 1.  username: admin
