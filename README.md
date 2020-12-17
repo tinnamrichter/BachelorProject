@@ -16,3 +16,5 @@ Installations Guide
 Log-in to administration site:
 1.  username: admin
 2.  password: admin
+
+Note: seperate command prompts for the project and the API
