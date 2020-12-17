@@ -2,9 +2,9 @@
 
 Installations Guide
 
-1. Download Node.js
+1. Download Node.js (https://nodejs.org/en/download/)
 
-2. Download Angular
+2. Download Angular (https://www.npmjs.com/package/@angular/cli)
 
 3. Navigate to the folder Quickfind in the command prompt
 
