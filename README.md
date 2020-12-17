@@ -1,6 +1,6 @@
 # BachelorProject
 
-Installations Guide
+Installation Guide
 
 1. Download Node.js (https://nodejs.org/en/download/)
 
@@ -18,3 +18,4 @@ Log-in to administration site:
 2.  password: admin
 
 Note: seperate command prompts for the project and the API
+Note: for the installation guide for the API, take a look in the README file in the databaseQuickfind folder
