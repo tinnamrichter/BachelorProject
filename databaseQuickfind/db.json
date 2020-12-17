@@ -1,0 +1,109 @@
+{
+  "employeesData": [
+    {
+      "id": 1,
+      "photo": "images/krri.jpg",
+      "employee_nr_dk": "6156445",
+      "userid": "165546",
+      "corp_id": "65465",
+      "first_name": "Hans",
+      "last_name": "Hansen",
+      "initials": "HH",
+      "project": "54566",
+      "project_name": "TactiGuard",
+      "work_ordre": "566",
+      "email": "kri@hotmail.com",
+      "mobile_nr": "+45 60 89 87 56",
+      "leader": "Rasmus",
+      "employee_nr": "41",
+      "org_id_acf": "5566",
+      "ifs_category": "Software Developer",
+      "removed": false,
+      "skill_name": [
+        "Java",
+        "C#"
+      ]
+    },
+    {
+      "id": 2,
+      "photo": "images/woman.png",
+      "employee_nr_dk": "4646",
+      "userid": "464",
+      "corp_id": "2565+",
+      "first_name": "Hanne",
+      "last_name": "Hansen",
+      "initials": "HH",
+      "project": "315645+6",
+      "project_name": "Tacticall Dispatcher",
+      "work_ordre": "5+65+",
+      "email": "hanne@gmail.com",
+      "mobile_nr": "+45 68 98 98 63",
+      "leader": "Jon Magnussen",
+      "employee_nr": "464",
+      "org_id_acf": "42453",
+      "ifs_category": "Web Developer",
+      "removed": false,
+      "skill_name": [
+        "TypeScript",
+        "JavaScript",
+        "C#"
+      ]
+    },
+    {
+      "id": 3,
+      "photo": "images/placeholder.png",
+      "first_name": "ghngnv",
+      "last_name": "  bnb",
+      "removed": false,
+      "skill_name": []
+    },
+    {
+      "id": 4,
+      "photo": "images/placeholder.png",
+      "removed": true,
+      "skill_name": []
+    },
+    {
+      "id": 5,
+      "photo": "images/placeholder.png",
+      "removed": true,
+      "skill_name": []
+    },
+    {
+      "id": 6,
+      "photo": "images/placeholder.png",
+      "employee_nr_dk": "adf  adsf",
+      "userid": "adf ads ",
+      "first_name": "adfadf",
+      "last_name": "adfadf ",
+      "initials": "adsf  das f",
+      "employee_nr": "aadsf ",
+      "removed": false,
+      "skill_name": []
+    },
+    {
+      "id": 7,
+      "removed": true
+    },
+    {
+      "id": 8,
+      "removed": true
+    },
+    {
+      "id": 9,
+      "photo": "images/man.jpg",
+      "first_name": "jfeiojwior½",
+      "last_name": "iokfji",
+      "initials": "jijii",
+      "project_name": "Software",
+      "removed": true,
+      "skill_name": []
+    },
+    {
+      "skill_name": [],
+      "removed": false,
+      "photo": "images/placeholder.png",
+      "id": 10
+    }
+  ]
+}
