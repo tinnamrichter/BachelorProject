@@ -1,0 +1,105 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+/* Table */
+table {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 3%;
+}
+
+/* Search */
+.search {
+  margin-left: 5%;
+  width: 90%;
+  background-color: #E3E3E1;
+  border-radius: 100px;
+  height: 40px;
+  margin-bottom: 2%;
+}
+
+input.search-input {
+  margin-left: 4%;
+}
+
+.search div.mat-form-field-underline {
+  height: 0px;
+}
+
+
+.search-placeholder {
+  margin-left: 2%;
+  color: #878684;
+  font-size: 19px;
+}
+
+ .mat-form-field-infix {
+   border: none;
+ }
+
+
+/* Log-in */
+.login-component {
+  color: #747474;
+  padding-bottom: 1%;
+  padding-top: 0.1%;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 2%;
+}
+
+.form-control {
+  border: none;
+  background-color: #E3E3E1;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 15px;
+  padding-left: 1%;
+  width: 180px;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.login-label {
+  margin-right: 1%;
+  margin-left: 5%;
+}
+
+
+.login-headline {
+margin-left: 5%;
+}
+
+/* Buttons */
+button.login-button {
+  background-color: #004C97;
+  color: white;
+  margin-left: 2%;
+}
+
+button.logout-button {
+  background-color: #004C97;
+  margin-left: 5%;
+  color: white;
+}
+
+button.add-employee-button {
+  background-color: #24A148;
+  color: white;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+button.remove-employee-button {
+  color: white;
+  background-color: #d83327;
+  margin-bottom: 4%;
+  margin-left: 5%;
+}

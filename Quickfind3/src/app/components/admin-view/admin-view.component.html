@@ -1,0 +1,188 @@
+<mat-form-field class="search">
+  <mat-placeholder class="search-placeholder">
+  <mat-icon class="search-icon">search</mat-icon> Search for an Employee...
+</mat-placeholder>
+  <input matInput [(ngModel)]="search_string" (input)="search()" class="search-input">
+</mat-form-field>
+
+<div>
+  <ul>
+    <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+  </ul>
+</div>
+<button mat-button class="btn btn-primary logout-button" (click)="logout()">Log out</button>
+
+<button mat-button (click)="addANewEmployee($event)" class="add-employee-button">Add Employee</button>
+
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+       <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef> avatar </th>
+        <td mat-cell *matCellDef="let element">
+          <img src="{{element.photo}}" class="employee-avatar">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_nr_dk">
+        <th mat-header-cell *matHeaderCellDef> DK Employee Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.employee_nr_dk}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userid">
+        <th mat-header-cell *matHeaderCellDef> User Id </th>
+        <td mat-cell *matCellDef="let element">{{element.userid}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="corp_id">
+        <th mat-header-cell *matHeaderCellDef> Corp Id </th>
+        <td mat-cell *matCellDef="let element">{{element.corp_id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element">{{element.first_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element">{{element.last_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="project">
+        <th mat-header-cell *matHeaderCellDef> Project </th>
+        <td mat-cell *matCellDef="let element">{{element.project}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="project_name">
+        <th mat-header-cell *matHeaderCellDef> Project Name </th>
+        <td mat-cell *matCellDef="let element">{{element.project_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="work_ordre">
+        <th mat-header-cell *matHeaderCellDef> Work Ordre </th>
+        <td mat-cell *matCellDef="let element">{{element.work_ordre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile_nr">
+        <th mat-header-cell *matHeaderCellDef> Mobile Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.mobile_nr}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="leader">
+        <th mat-header-cell *matHeaderCellDef> Leader </th>
+        <td mat-cell *matCellDef="let element">{{element.leader}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_nr">
+        <th mat-header-cell *matHeaderCellDef> Employee Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.employee_nr}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="org_id_acf">
+        <th mat-header-cell *matHeaderCellDef> Org-ID SAAB-ACF </th>
+        <td mat-cell *matCellDef="let element">{{element.org_id_acf}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ifs_category">
+        <th mat-header-cell *matHeaderCellDef> IFS Category </th>
+        <td mat-cell *matCellDef="let element">{{element.ifs_category}}</td>
+      </ng-container>
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <div class="employees-boks">
+
+          <div style="text-align:center; margin-top: 20px;" class="image-upload"><mat-card style="margin-top:10px; width: 50%;">
+          <mat-card-content>
+            <img src="{{element.photo}}" class="employee-image">
+            <ul>
+              <li *ngFor="let file of files">
+                <span id="file-label"></span>
+              </li>
+            </ul>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="warn" (click)="onClick(element)">
+              <mat-icon>file_upload</mat-icon>
+              Upload
+            </button>
+          </mat-card-actions>
+          </mat-card><input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" style="display:none;"/></div>
+<br>
+  <div class="employee-info">
+    <br>
+Employee First Name :  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.first_name" placeholder="First Name...">
+</mat-form-field><br>
+Employee Last Name : <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.last_name" placeholder="Last Name...">
+</mat-form-field> <br>
+Employee initials:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.initials" placeholder="Initials...">
+</mat-form-field> <br>
+Dk Employee Nr:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.employee_nr_dk" placeholder="DK Employee Nr...">
+</mat-form-field> <br>
+Employee Nr:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.employee_nr" placeholder="Employee Nr...">
+</mat-form-field> <br>
+User Id:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.userid" placeholder="User Id...">
+</mat-form-field> <br>
+Corporation Id:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.corp_id" placeholder="Corp Id...">
+</mat-form-field> <br>
+Project:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.project" placeholder="Project...">
+</mat-form-field>
+<br>
+Project Name:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.project_name" placeholder="Project Name...">
+</mat-form-field> <br>
+Work Ordre:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.work_ordre" placeholder="Work Ordre...">
+</mat-form-field> <br>
+Leader:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.leader" placeholder="Leader...">
+</mat-form-field> <br>
+Org-ID SAAB-ACF:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.org_id_acf" placeholder="ORG-Id SAAB-ACF...">
+</mat-form-field> <br>
+IFS Category:  <mat-form-field>
+  <input matInput (input)="save(element, $event)" [(ngModel)]="element.ifs_category" placeholder="IFS Category...">
+</mat-form-field>
+ <br>
+
+
+</div><br><br>
+
+<div class="contact-info">
+  E-mail:  <mat-form-field>
+    <input matInput (input)="save(element, $event)" [(ngModel)]="element.email" placeholder="Email...">
+  </mat-form-field>  <br>
+  Cell Nr: <mat-form-field>
+    <input matInput (input)="save(element, $event)" [(ngModel)]="element.mobile_nr" placeholder="Phone Number...">
+  </mat-form-field>
+</div>
+<br>
+<button mat-button (click)="removeEmployee(element, $event)" class="remove-employee-button">Remove employee</button>
+</div>
+</div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay" class="header-row"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"><mat-card></mat-card></tr>
+</table>

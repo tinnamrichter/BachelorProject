@@ -1,0 +1,153 @@
+<app-login></app-login>
+<mat-form-field class="search">
+  <mat-placeholder class="search-placeholder">
+    <mat-icon class="search-icon">search</mat-icon> Search for an Employee...
+  </mat-placeholder>
+  <input matInput [(ngModel)]="search_string" (input)="search()" class="search-input">
+</mat-form-field>
+
+<div>
+  <ul>
+    <li *ngIf="userFromApi">{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
+  </ul>
+</div>
+
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+       <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef> avatar </th>
+        <td mat-cell *matCellDef="let element">
+          <img src="{{element.photo}}" class="employee-avatar">
+
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_nr_dk">
+        <th mat-header-cell *matHeaderCellDef> DK Employee Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.employee_nr_dk}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="userid">
+        <th mat-header-cell *matHeaderCellDef> User Id </th>
+        <td mat-cell *matCellDef="let element">{{element.userid}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="corp_id">
+        <th mat-header-cell *matHeaderCellDef> Corp Id </th>
+        <td mat-cell *matCellDef="let element">{{element.corp_id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element">{{element.first_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element">{{element.last_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="project">
+        <th mat-header-cell *matHeaderCellDef> Project </th>
+        <td mat-cell *matCellDef="let element">{{element.project}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="project_name">
+        <th mat-header-cell *matHeaderCellDef> Project Name </th>
+        <td mat-cell *matCellDef="let element">{{element.project_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="work_ordre">
+        <th mat-header-cell *matHeaderCellDef> Work Ordre </th>
+        <td mat-cell *matCellDef="let element">{{element.work_ordre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile_nr">
+        <th mat-header-cell *matHeaderCellDef> Mobile Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.mobile_nr}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="leader">
+        <th mat-header-cell *matHeaderCellDef> Leader </th>
+        <td mat-cell *matCellDef="let element">{{element.leader}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_nr">
+        <th mat-header-cell *matHeaderCellDef> Employee Nr. </th>
+        <td mat-cell *matCellDef="let element">{{element.employee_nr}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="org_id_acf">
+        <th mat-header-cell *matHeaderCellDef> Org-ID SAAB-ACF </th>
+        <td mat-cell *matCellDef="let element">{{element.org_id_acf}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ifs_category">
+        <th mat-header-cell *matHeaderCellDef> IFS Category </th>
+        <td mat-cell *matCellDef="let element">{{element.ifs_category}}</td>
+      </ng-container>
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <img src="{{element.photo}}" class="employee-image">
+
+  <div class="employee-info">
+<b>Employee name :</b>    {{element.first_name}} {{element.last_name}} <br>
+<b>Employee initials:</b>      {{element.initials}} <br>
+<b>Org-ID Saab-ACF:</b>      {{element.org_id_acf}} <br>
+<b>Project:</b>       {{element.project}} <br>
+<b>Project Name:</b>      {{element.project_name}} <br>
+<b>IFS Category:</b>      {{element.ifs_category}} <br>
+<b>Leader:</b>       {{element.leader}} <br>
+<b>Employee Nr:</b>       {{element.employee_nr}} <br>
+<b>DK Employee Nr:</b>      {{element.employee_nr_dk}} <br>
+<b>User Id:</b>      {{element.userid}} <br>
+<b>Corp Id:</b>       {{element.corp_id}} <br>
+<b>Work Ordre:</b>       {{element.work_ordre}} <br>
+
+
+
+<!--Skill Chips --><br>
+<mat-form-field class="example-chip-list">
+  <mat-chip-list #chipList aria-label="Skill selection">
+    <mat-chip class="chip" *ngFor="let skill of element.skill_name" [selectable]="selectable"
+             [removable]="removable" (removed)="removeSkill(element, skill)">
+      {{skill}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="New skill..."
+          #skillInput
+          [formControl]="skillCtrl"
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="addSkill($event, element)">
+  </mat-chip-list>
+</mat-form-field>
+
+</div><br><br>
+<div class="contact-info">
+  E-mail: {{element.email}} <br>
+  Cell Nr: {{element.mobile_nr}}
+</div>
+
+</div>
+
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay" class="header-row"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"><mat-card></mat-card></tr>
+</table>

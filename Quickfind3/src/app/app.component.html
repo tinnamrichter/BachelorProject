@@ -1,0 +1,20 @@
+<mat-drawer-container class="content">
+  <mat-drawer mode="side" opened class="sidenav">
+    <div>
+      <ul>
+        <li *ngIf="userFromApi">{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
+      </ul>
+    </div>
+
+    <div class="links">
+       <mat-selection-list #links>
+        <mat-list-option *ngFor="let link of allLinks" [value]="link.project_name" class="navlinks" (click)="selectDepartment($event, link)">
+          {{link}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="main-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

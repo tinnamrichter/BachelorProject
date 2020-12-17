@@ -1,0 +1,25 @@
+.sidenav {
+  width: 399px;
+  background-color: #21557F;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  margin-left: 20%;
+}
+
+.content {
+  height: 100%;
+}
+
+.navlinks {
+  color: white;
+  margin-left: 5%;
+}
+
+
+  ::ng-deep.mat-pseudo-checkbox {
+    display: none !important;
+  }
