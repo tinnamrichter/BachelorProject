@@ -18,4 +18,4 @@ Log-in to administration site:
 2.  password: admin
 
 Note: seperate command prompts for the project and the API <br>
-Note: for the installation guide for the API, take a look in the README file in the databaseQuickfind folder
+Note: for the installation guide for the API, take a look at the README file in the databaseQuickfind folder
