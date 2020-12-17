@@ -14,5 +14,5 @@ Installations Guide
 
 
 Log-in to administration site:
-username: admin
-password: admin
+  username: admin
+  password: admin
